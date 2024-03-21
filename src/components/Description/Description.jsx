@@ -1,6 +1,6 @@
-import css from "./Profile.module.css";
+import css from "./Description.module.css";
 
-export const Profile = ({ name, tag, location, image, stats }) => {
+export const Description = ({ name, tag, location, image, stats }) => {
   return (
     <div>
       <div className={css.card}>
@@ -29,4 +29,4 @@ export const Profile = ({ name, tag, location, image, stats }) => {
   );
 };
 
-export default Profile;
+export default Description;

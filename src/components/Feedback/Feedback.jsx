@@ -1,6 +1,6 @@
-import css from "./TransactionHistory.module.css";
+import css from "./Feedback.module.css";
 
-export const TransactionHistory = ({ items }) => {
+export const Feedback = ({ items }) => {
   return (
     <div>
       <table className={css.table}>
@@ -27,4 +27,4 @@ export const TransactionHistory = ({ items }) => {
   );
 };
 
-export default TransactionHistory;
+export default Feedback;
