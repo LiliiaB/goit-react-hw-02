@@ -17,12 +17,19 @@ export default function App() {
       [feedbackType]: prevState[feedbackType] + 1,
     }));
   };
-
+  const { good, neutral, bad } = feedbackTypes;
+  const totalFeedback = good + neutral + bad;
+  const positiveFeedbacks = Math.round(
+    (feedbackTypes.good / totalFeedback) * 100
+  );
   return (
     <>
       <Description />
       <Options updateFeedback={updateFeedback} />
-      <Feedback feedbackTypes={feedbackTypes} />
+      <Feedback
+        feedbackTypes={feedbackTypes}
+        positiveFeedbacks={positiveFeedbacks}
+      />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { Notification } from "../Notification/Notification";
 
-export const Feedback = ({ feedbackTypes }) => {
+export const Feedback = ({ feedbackTypes, positiveFeedbacks }) => {
   const { good, neutral, bad } = feedbackTypes;
   const totalFeedback = good + neutral + bad;
 
@@ -17,7 +17,7 @@ export const Feedback = ({ feedbackTypes }) => {
         {totalFeedback === 0 && <Notification />}
         <p>Total: {totalFeedback}</p>
       </div>
-      <p>Positive: </p>
+      <p>Positive: {positiveFeedbacks}%</p>
     </div>
   );
 };
