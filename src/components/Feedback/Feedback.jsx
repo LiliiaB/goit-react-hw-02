@@ -4,9 +4,10 @@ export const Feedback = ({ feedbackTypes }) => {
   const { good, neutral, bad } = feedbackTypes;
   const totalFeedback = good + neutral + bad;
 
-  if (totalFeedback === 0) {
-    return null;
+  if (!totalFeedback) {
+    return <Notification />;
   }
+
   return (
     <div>
       <p>Good: {good}</p>
