@@ -1,20 +1,19 @@
 import css from "./Options.module.css";
 
-export const Options = ({ friends }) => {
+export const Options = ({ updateFeedback }) => {
   return (
-    <ul className={css.list}>
-      {friends.map((friend) => {
-        return (
-          <li key={friend.id}>
-            <FriendListItem
-              avatar={friend.avatar}
-              name={friend.name}
-              isOnline={friend.isOnline}
-            />
-          </li>
-        );
-      })}
-    </ul>
+    <div className={css.list}>
+      <button className={css.button} onClick={() => updateFeedback("good")}>
+        Good
+      </button>
+      <button className={css.button} onClick={() => updateFeedback("neutral")}>
+        Neutral
+      </button>
+      <button className={css.button} onClick={() => updateFeedback("bad")}>
+        Bad
+      </button>
+      <button className={css.button}>Reset</button>
+    </div>
   );
 };
 

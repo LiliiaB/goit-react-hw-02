@@ -6,3 +6,28 @@
   gap: 16px;
   padding-left: 0;
 }
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: 2px solid #c5bfb6;
+  color: #302e2e;
+  background-color: #c5bfb6;
+  border-radius: 5px;
+  outline: none;
+  outline-color: transparent;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.button:hover {
+  background-color: #e0deda;
+  border-color: #e0deda;
+}
+.button:active:focus {
+  background-color: #e0deda;
+  border-color: #e0deda;
+}

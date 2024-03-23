@@ -1,30 +1,13 @@
 import css from "./Description.module.css";
 
-export const Description = ({ name, tag, location, image, stats }) => {
+export const Description = () => {
   return (
     <div>
-      <div className={css.card}>
-        <div>
-          <img className={css.imgProfile} src={image} alt={name} />
-          <p className={css.name}>{name}</p>
-          <p>@{tag}</p>
-          <p className={css.location}>{location}</p>
-        </div>
-        <ul className={css.list}>
-          <li className={css.li}>
-            <span>Followers</span>
-            <span className={css.span}>{stats.followers}</span>
-          </li>
-          <li>
-            <span className={css.li}>Views</span>
-            <span className={css.span}>{stats.views}</span>
-          </li>
-          <li>
-            <span className={css.li}>Likes</span>
-            <span className={css.span}>{stats.likes}</span>
-          </li>
-        </ul>
-      </div>
+      <h1 className={css.header}>Sip Happens Café</h1>
+      <p>
+        Please leave your feedback about our service by selecting one of the
+        options below.
+      </p>
     </div>
   );
 };

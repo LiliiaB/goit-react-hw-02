@@ -1,28 +1,22 @@
-import css from "./Feedback.module.css";
+import { Notification } from "../Notification/Notification";
 
-export const Feedback = ({ items }) => {
+export const Feedback = ({ feedbackTypes }) => {
+  const { good, neutral, bad } = feedbackTypes;
+  const totalFeedback = good + neutral + bad;
+
+  if (totalFeedback === 0) {
+    return null;
+  }
   return (
     <div>
-      <table className={css.table}>
-        <thead className={css.head}>
-          <tr>
-            <th className={css.item}>Type</th>
-            <th className={css.item}>Amount</th>
-            <th className={css.item}>Currency</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map(({ id, type, amount, currency }) => {
-            return (
-              <tr key={id} className={css.elements}>
-                <td className={css.item}>{type}</td>
-                <td className={css.item}>{amount}</td>
-                <td className={css.item}>{currency}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <p>Good: {good}</p>
+      <p>Neutral: {neutral}</p>
+      <p>Bad: {bad}</p>
+      <div>
+        {totalFeedback === 0 && <Notification />}
+        <p>Total: {totalFeedback}</p>
+      </div>
+      <p>Positive: </p>
     </div>
   );
 };
