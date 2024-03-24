@@ -2,14 +2,20 @@ import "./App.css";
 import { Description } from "../Description/Description";
 import { Options } from "../Options/Options";
 import { Feedback } from "../Feedback/Feedback";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function App() {
-  const [feedbackTypes, setFeedbackTypes] = useState({
+  const initialFeedback = JSON.parse(localStorage.getItem("feedback")) || {
     good: 0,
     neutral: 0,
     bad: 0,
-  });
+  };
+
+  const [feedbackTypes, setFeedbackTypes] = useState(initialFeedback);
+
+  useEffect(() => {
+    localStorage.setItem("feedback", JSON.stringify(feedbackTypes));
+  }, [feedbackTypes]);
 
   const updateFeedback = (feedbackType) => {
     setFeedbackTypes((prevState) => ({
