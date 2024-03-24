@@ -1,6 +1,6 @@
 import css from "./Options.module.css";
 
-export const Options = ({ updateFeedback }) => {
+export const Options = ({ updateFeedback, resetFeedback, totalFeedback }) => {
   return (
     <div className={css.list}>
       <button className={css.button} onClick={() => updateFeedback("good")}>
@@ -12,7 +12,11 @@ export const Options = ({ updateFeedback }) => {
       <button className={css.button} onClick={() => updateFeedback("bad")}>
         Bad
       </button>
-      <button className={css.button}>Reset</button>
+      {totalFeedback > 0 && (
+        <button className={css.button} onClick={resetFeedback}>
+          Reset
+        </button>
+      )}
     </div>
   );
 };
