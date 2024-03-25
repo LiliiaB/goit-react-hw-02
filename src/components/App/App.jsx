@@ -2,6 +2,7 @@ import "./App.css";
 import { Description } from "../Description/Description";
 import { Options } from "../Options/Options";
 import { Feedback } from "../Feedback/Feedback";
+import { Notification } from "../Notification/Notification";
 import { useState, useEffect } from "react";
 
 export default function App() {
@@ -45,11 +46,17 @@ export default function App() {
         resetFeedback={resetFeedback}
         totalFeedback={totalFeedback}
       />
-      <Feedback
-        feedbackTypes={feedbackTypes}
-        positiveFeedbacks={positiveFeedbacks}
-        totalFeedback={totalFeedback}
-      />
+      {totalFeedback === 0 ? (
+        <Notification />
+      ) : (
+        <Feedback
+          good={good}
+          neutral={neutral}
+          bad={bad}
+          positiveFeedbacks={positiveFeedbacks}
+          totalFeedback={totalFeedback}
+        />
+      )}
     </>
   );
 }

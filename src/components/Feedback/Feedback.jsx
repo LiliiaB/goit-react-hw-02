@@ -1,10 +1,13 @@
 import { Notification } from "../Notification/Notification";
 
-export const Feedback = ({ feedbackTypes, positiveFeedbacks }) => {
-  const { good, neutral, bad } = feedbackTypes;
-  const totalFeedback = good + neutral + bad;
-
-  if (!totalFeedback) {
+export const Feedback = ({
+  good,
+  neutral,
+  bad,
+  positiveFeedbacks,
+  totalFeedback,
+}) => {
+  if (totalFeedback === 0) {
     return <Notification />;
   }
 
@@ -13,10 +16,7 @@ export const Feedback = ({ feedbackTypes, positiveFeedbacks }) => {
       <p>Good: {good}</p>
       <p>Neutral: {neutral}</p>
       <p>Bad: {bad}</p>
-      <div>
-        {totalFeedback === 0 && <Notification />}
-        <p>Total: {totalFeedback}</p>
-      </div>
+      <p>Total: {totalFeedback}</p>
       <p>Positive: {positiveFeedbacks}%</p>
     </div>
   );
